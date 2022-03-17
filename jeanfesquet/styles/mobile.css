@@ -1,0 +1,9 @@
+.open {
+    width: calc(100vw - 9rem);
+}
+
+.hero {
+    border-top: 0.5rem solid var(--secondary);
+}
+
+
