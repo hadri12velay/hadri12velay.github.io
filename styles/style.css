@@ -1,0 +1,110 @@
+/* reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 1 rem = 10 pixels */
+html {
+  font-size: 62.5%;
+  font-family: 'Red Hat Mono', monospace;
+  font-weight: 300;
+}
+
+/* Variables */
+html {
+  /* --header1 : calc(4rem + 1vw);
+  --header2 : calc(2rem + 1vw);
+  --small : calc(0.2rem + 1vw); */
+  --header1 : 7rem;
+  --header2 : 3.7rem;
+  --header3 : 3rem;
+  --small : 1.6rem;
+}
+html.light {
+  --background : #ffffff;
+  --primary : #3F3F3F;
+  --secondary : #616161;
+  --tertiary : #979797;
+  --special : #b94545;
+  --hover : #eeda2b;
+  --circle-case: #aaaaaa;
+  --circle: white;
+}
+html.dark {
+    --background : #31313a;
+    --primary : #f1f1f1;
+    --secondary : #e9e9e9;
+    --tertiary : #dddddd;
+    --special : #e74e4e;
+    --hover : #eeda2b;
+    --circle-case: #aaaaaa;
+    --circle: #333333;
+}
+
+body {
+  background: var(--background);
+}
+
+h1 {
+  font-size: var(--header1);
+  color: var(--primary);
+}
+h2 {
+  font-size: var(--header2);
+  color: var(--secondary);
+}
+h3 {
+  font-size: var(--header3);
+  color: var(--secondary);
+}
+p {
+  font-size: var(--small);
+  color: var(--secondary);
+}
+a {
+  text-decoration: none;
+  color: var(--special);
+}
+a:hover {
+  color: var(--hover);
+}
+button {
+  all: unset;
+  cursor: pointer;
+}
+button.active {
+  color: var(--hover);
+}
+.hidden {
+  display: none !important;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem;
+}
+.header{
+  flex: 1 1 15rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.main{
+  flex:1 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5rem;
+}
+.mainsub{
+  flex: 1 1 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+}

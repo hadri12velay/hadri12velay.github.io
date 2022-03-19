@@ -1,16 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
     <title>hadri1.com</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+
+    <script src="scripts/jquery.min.js"></script>
   </head>
   <body>
-    <h1>Archive:</h1>
-    <!-- <form id="goBackButton" action="../index.html" style="position: fixed; left: 85%;">
-        <button type="submit" style="background-color: crimson; color: white; border: none;">Go back to main</button>
-    </form> -->
-    <p>- <a href="jeanfesquet/index.html">photography website</a></p>
+    <div class="container">
+      <header class="header">
+        <h1 class="title">hadrien develay</h1>
+      </header>
+      <div class="main">
+        <div class="mainsub">
+          <h2 class="subtitle">about me:</h2>
+          <p class="about">
+            > i study planes and rockets.
+          </p>
+          <p class="about">
+            > i am nearly done studying planes and rockets.
+          </p>
+          <p class="about">
+            > i don't want to build planes or rockets.
+          </p>
+          <p class="about">
+            > i like to code and stuff.
+          </p>
+        </div>
+        <div class="mainsub">
+          <h2 class="subtitle">some projects:</h2>
+          <p class="projectList subcontent">
+            <a href="jeanfesquet/index.html" class="projectLink">> photography website</a>
+            <button onclick="toggleActive()" class="details">details</button>
+          </p>
+        </div>
+        <div class="mainsub">
+          <h2 class="subtitle">social media and stuff:</h2>
+          <p class="subcontent"><a target="_blank" href="https://www.instagram.com/hadri1.2velay/" class="projectLink">> the instagram</a></p>
+          <p class="subcontent"><a target="_blank" href="mailto:hadrien@develay.uk" class="projectLink">> the email</a></p>
+          <p class="subcontent"><a target="_blank" href="https://www.incimages.com/uploaded_files/image/1920x1080/getty_525041723_970647970450098_70024.jpg" class="projectLink">> the social security number</a></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
   </body>
-</html>
+  </html>
+  
+  
