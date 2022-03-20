@@ -69,7 +69,7 @@ a {
   color: var(--special);
 }
 a:hover {
-  color: var(--hover);
+  color: var(--secondary);
 }
 button {
   all: unset;
@@ -77,7 +77,7 @@ button {
   color: var(--secondary);
 }
 button.type1 {
-  color: var(--special2);
+  color: var(--special);
 }
 button.type1:hover {
   color: var(--secondary);
@@ -122,5 +122,13 @@ button.type2:hover {
 }
 
 .detailsWindow {
-  max-width: 80rem;
+  max-width: 100rem;
+}
+.detailsInside {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+.detailsImage {
+  width: 50rem;
 }
