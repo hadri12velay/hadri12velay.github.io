@@ -76,8 +76,14 @@ button {
   cursor: pointer;
   color: var(--secondary);
 }
-button.showColor {
+button.type1 {
   color: var(--special2);
+}
+button.type1:hover {
+  color: var(--secondary);
+}
+button.type2:hover {
+  color: var(--special);
 }
 .hidden {
   display: none !important;
