@@ -39,6 +39,7 @@ html.dark {
     --tertiary : #dddddd;
     --special : #e74e4e;
     --hover : #eeda2b;
+    --special2: #DCBAA0;
     --circle-case: #aaaaaa;
     --circle: #333333;
 }
@@ -73,9 +74,10 @@ a:hover {
 button {
   all: unset;
   cursor: pointer;
+  color: var(--secondary);
 }
-button.active {
-  color: var(--hover);
+button.showColor {
+  color: var(--special2);
 }
 .hidden {
   display: none !important;
@@ -107,4 +109,12 @@ button.active {
   flex-direction: column;
   justify-content: flex-start;
   height: auto;
+}
+
+.detailsSep {
+  margin: 1rem 0 1rem 0;
+}
+
+.detailsWindow {
+  max-width: 80rem;
 }
