@@ -128,7 +128,14 @@ button.type2:hover {
   display: flex;
   flex-direction: row;
   gap: 3rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 .detailsImage {
-  width: 50rem;
+  flex: 1 1;
+  max-width: 50rem;
+  min-width: 50vw
+}
+.detailsContent {
+  flex: 1 1;
 }
