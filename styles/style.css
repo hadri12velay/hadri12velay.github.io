@@ -8,8 +8,10 @@
 /* 1 rem = 10 pixels */
 html {
   font-size: 62.5%;
-  font-family: 'Red Hat Mono', monospace;
-  font-weight: 300;
+  font-family: 'PT Mono', monospace;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
 }
 
 /* Variables */
@@ -18,9 +20,9 @@ html {
   --header2 : calc(2rem + 1vw);
   --small : calc(0.2rem + 1vw); */
   --header1 : 7rem;
-  --header2 : 3.7rem;
-  --header3 : 3rem;
-  --small : 1.6rem;
+  --header2 : 4rem;
+  --header3 : 2.3rem;
+  --small : 1.7rem;
 }
 html.light {
   --background : #ffffff;
@@ -39,7 +41,7 @@ html.dark {
     --tertiary : #dddddd;
     --special : #e74e4e;
     --hover : #eeda2b;
-    --special2: #DCBAA0;
+    --special2: #d1a06885;
     --circle-case: #aaaaaa;
     --circle: #333333;
 }
@@ -89,18 +91,24 @@ button.type2:hover {
   display: none !important;
 }
 
+.decoration1 {
+  color: var(--special2);
+}
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 2rem;
+  margin: 2rem;
+  width: 100vw;
 }
 .header{
-  flex: 1 1 15rem;
+  flex: 1 1;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 3rem;
 }
 .main{
   flex:1 1;
@@ -109,8 +117,14 @@ button.type2:hover {
   justify-content: center;
   gap: 5rem;
 }
+.subtitleContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
 .mainsub{
-  flex: 1 1 10rem;
+  flex: 1 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -134,7 +148,7 @@ button.type2:hover {
 .detailsImage {
   flex: 1 1;
   max-width: 50rem;
-  min-width: 50vw
+  min-width: 50vw;
 }
 .detailsContent {
   flex: 1 1;

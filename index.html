@@ -9,22 +9,30 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/mobile.css" media="(max-width: 768px)">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital@0;1&family=Cutive+Mono&family=PT+Mono&display=swap" rel="stylesheet">
 
     <script src="scripts/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/b31f960e88.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="container">
       <header class="header">
+        <h1 class="decoration1 desktopOnly">&lt;h1&gt;&nbsp;</h1>
         <h1 class="title">hadrien develay</h1>
+        <h1 class="decoration1 desktopOnly">&nbsp;&lt;/h1&gt;</h1>
       </header>
       <div class="main">
         <div class="mainsub">
-          <h2 class="subtitle">about me:</h2>
+          <div class="subtitleContainer">
+            <h2 class="decoration1">.</h2>
+            <h2 class="subtitle">about me</h2>
+            <h2 class="decoration1">&nbsp;{</h2>
+          </div>
           <p class="about">
             > i study <button class="details type1" id="pr1">planes and rockets</button>.
           </p>
@@ -54,12 +62,17 @@
             <p>html, css, javascript, react, python, c, front-end web dvpmt, machine learning.</p>
             <hr class="detailsSep">
           </div>
+          <h2 class="decoration1">}</h2>
           
         </div>
 
 
         <div class="mainsub">
-          <h2 class="subtitle">some projects:</h2>
+          <div class="subtitleContainer">
+            <h2 class="decoration1">.</h2>
+            <h2 class="subtitle">some projects</h2>
+            <h2 class="decoration1">&nbsp;{</h2>
+          </div>
           <p class="projectList subcontent">
             <a href="jeanfesquet/index.html" class="projectLink">> photography website</a> -
             <button class="details showClose type2" id="proj1">details</button>
@@ -72,15 +85,21 @@
             </div>
             <hr class="detailsSep">
           </div>
+          <h2 class="decoration1">}</h2>
         </div>
 
 
         <div class="mainsub">
-          <h2 class="subtitle">social media and stuff:</h2>
+          <div class="subtitleContainer">
+            <h2 class="decoration1">.</h2>
+            <h2 class="subtitle">social media and stuff</h2>
+            <h2 class="decoration1">&nbsp;{</h2>
+          </div>
           <p class="subcontent"><a target="_blank" href="https://www.instagram.com/hadri1.2velay/" class="projectLink">> the instagram</a></p>
           <p class="subcontent"><a target="_blank" href="mailto:hadrien@develay.uk" class="projectLink">> the email</a></p>
           <p class="subcontent"><a target="_blank" href="https://www.incimages.com/uploaded_files/image/1920x1080/getty_525041723_970647970450098_70024.jpg" class="projectLink">> the social security number</a></p>
           <p class="subcontent"><a target="_blank" href="https://www.linkedin.com/in/hbed-develay/" class="projectLink">> the linkedin</a></p>
+          <h2 class="decoration1">}</h2>
         </div>
       </div>
     </div>

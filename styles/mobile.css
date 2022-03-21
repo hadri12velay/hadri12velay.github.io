@@ -1,0 +1,13 @@
+.desktopOnly {
+    display: none;
+}
+
+html {
+    /* --header1 : calc(4rem + 1vw);
+    --header2 : calc(2rem + 1vw);
+    --small : calc(0.2rem + 1vw); */
+    --header1 : 5rem;
+    --header2 : 3rem;
+    --header3 : 2rem;
+    --small : 1.3rem;
+}
