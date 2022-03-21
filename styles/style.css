@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Variables */
 html {
-  /* --header1 : calc(4rem + 1vw);
+  /*--header1 : calc(4rem + 2vw);/*
   --header2 : calc(2rem + 1vw);
   --small : calc(0.2rem + 1vw); */
   --header1 : 7rem;
@@ -48,6 +48,8 @@ html.dark {
 
 body {
   background: var(--background);
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
@@ -99,16 +101,19 @@ button.type2:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 2rem;
-  width: 100vw;
+  padding: 2rem;
+  max-width: 120rem;
 }
 .header{
   flex: 1 1;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   margin-bottom: 3rem;
+}
+.header .title {
+  width: fit-content;
 }
 .main{
   flex:1 1;
@@ -122,6 +127,7 @@ button.type2:hover {
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
+  padding-bottom: 0.4rem;
 }
 .mainsub{
   flex: 1 1;
@@ -130,13 +136,20 @@ button.type2:hover {
   justify-content: flex-start;
   height: auto;
 }
+.subcontent {
+  padding-left: 5rem;
+  padding-top: 0.3rem;
+}
+
 
 .detailsSep {
   margin: 1rem 0 1rem 0;
 }
 
+
+
 .detailsWindow {
-  max-width: 100rem;
+  max-width: 86rem;
 }
 .detailsInside {
   display: flex;
@@ -148,8 +161,9 @@ button.type2:hover {
 .detailsImage {
   flex: 1 1;
   max-width: 50rem;
-  min-width: 50vw;
+  min-width: 30rem;
 }
 .detailsContent {
   flex: 1 1;
+  min-width: 30rem;
 }

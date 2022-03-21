@@ -1,7 +1,7 @@
 $('.details').click(function() {
     if($(this).hasClass('active')) {
         if($(this).hasClass('showClose')) {
-            $(this).html('details');
+            $(this).html('details;');
         }
         $(this).toggleClass('active');
         $('#' + $(this).attr('id') + 'details').toggleClass('hidden')
@@ -10,7 +10,7 @@ $('.details').click(function() {
         
     } else {
         if($(this).hasClass('showClose')) {
-            $(this).html('close');
+            $(this).html('close;');
         }
         $(this).toggleClass('active');
         $('#' + $(this).attr('id') + 'details').toggleClass('hidden')

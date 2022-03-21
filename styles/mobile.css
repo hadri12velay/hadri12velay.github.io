@@ -11,3 +11,9 @@ html {
     --header3 : 2rem;
     --small : 1.3rem;
 }
+.title {
+    justify-self: center;
+}
+.detailsWindow {
+    width: calc(100vw - 4rem);
+}
