@@ -1,0 +1,98 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Gotham Rounded', sans-serif;
+    font-weight: normal;
+    --cellHeight: 5rem;
+    --cellWidth: 5rem;
+
+    --bgcolor: linear-gradient(to right top, #85aabd, #2c3541);
+    --outputcolor: linear-gradient(to right top, rgba(0, 0, 0, 0.13), rgb(0, 0, 0));
+    --color1: rgb(221, 221, 221);
+    --color2: rgb(185, 185, 185);
+    --color3: linear-gradient(to right , #999999, #99999986);
+    --colorequal: linear-gradient(to right top, #ee9643, #ad6b2e);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: var(--bgcolor);
+}
+
+.calculator-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.calc-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+button.calc {
+    /*flex: 1 1;*/
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: 0px solid white;
+    outline: none;
+    height: var(--cellHeight);
+    width: var(--cellWidth);
+    background: var(--color2);
+    user-select: none;
+}
+button.number {
+    background: var(--color1);
+}
+button.ops {
+    background: var(--color3);
+}
+button.equals {
+    background: var(--colorequal);
+}
+
+button.calc.span-two {
+    /*flex: 2 2;*/
+    width: calc(var(--cellWidth) * 2);
+}
+
+button.calc:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.output {
+    height: var(--cellHeight);
+    width: calc(var(--cellWidth) * 4);
+    background: linear-gradient(to right top, rgba(0, 0, 0, 0.13), rgb(0, 0, 0));
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 1.5rem;
+}
+
+#calcshadow {
+    width: calc(4*var(--cellWidth));
+    height: calc(6*var(--cellHeight));
+    background-color: transparent;
+    position: absolute;
+    top: calc(50vh - 3 * var(--cellHeight));
+    left: calc(50vw - 2 * var(--cellWidth));
+    box-shadow: 7px 7px 4px #0000005d;
+    pointer-events: none
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic calculator</title>
+
+    <link href="style.css" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/gotham-rounded" rel="stylesheet">
+
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="calcshadow"></div>
+    <div class="calculator-grid">
+        <div class="output">
+            <div data-previous-operand class="previous-operand"></div>
+
+            <div data-current-operand class="current-operand"></div>
+        </div>
+            
+        <div class="calc-row" id="row1">
+            <button data-all-clear class="calc span-two">AC</button>
+            <button data-delete class="calc">DEL</button>
+            <button data-operation class="calc ops">÷</button>
+        </div>
+
+        <div class="calc-row" id="row2">
+            <button data-number class="calc number">1</button>
+            <button data-number class="calc number">2</button>
+            <button data-number class="calc number">3</button>
+            <button data-operation class="calc ops">×</button>
+        </div>
+
+        <div class="calc-row" id="row3">
+            <button data-number class="calc number">4</button>
+            <button data-number class="calc number">5</button>
+            <button data-number class="calc number">6</button>
+            <button data-operation class="calc ops">+</button>
+        </div>
+
+        <div class="calc-row" id="row4">
+            <button data-number class="calc number">7</button>
+            <button data-number class="calc number">8</button>
+            <button data-number class="calc number">9</button>
+            <button data-operation class="calc ops">-</button>
+        </div>
+
+        <div class="calc-row" id="row5">
+            <button data-number class="calc ops">.</button>
+            <button data-number class="calc number">0</button>
+            <button data-equals class="calc span-two equals">=</button>
+        </div>
+    </div>
+    
+</body>
+</html>
