@@ -1,0 +1,89 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+
+    --background1: linear-gradient(to top, #070b13, #121b2e);
+    --background2: #35363a;
+    --background3: #070b13;
+    --primary: #c3c9d6;
+    --secondary: #121b2e;
+    --special: #e9c240;
+    --spare: #9e3232;
+
+    --header1 : 7rem;
+    --header2 : 3.5rem;
+    --header3 : 2.3rem;
+    --small : 1.7rem;
+}
+
+body {
+    background: var(--background3);
+}
+h1 {
+    font-size: var(--header1);
+    font-weight: 200;
+    color: var(--primary);
+}
+h2 {
+    font-size: var(--header2);
+    font-weight: 200;
+    color: var(--primary);
+}
+h3 {
+    font-size: var(--header3);
+    font-weight: 400;
+    color: var(--primary);
+}
+a, p, button{
+    font-size: var(--small);
+    font-weight: 200;
+    text-decoration: none;
+    color: var(--primary);
+}
+button {
+    all: unset;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 400;
+}
+button:hover {
+    color: var(--special);
+}
+
+a:hover {
+    color: var(--special);
+}
+
+.hidden {
+    display: none !important;
+}
+.header{
+    text-align: center;
+}
+.main {
+    position: relative;
+    max-width: 80rem;
+    transform: translate(-50%, 0%);
+    left: 50vw;
+    padding: 0 2rem;
+}
+.details-content {
+    max-height: 0rem;
+    overflow: hidden;
+    transition: max-height 0.2s;
+}
+.project {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+hr {
+    border-top: 1px solid var(--primary);
+    border-bottom: 0px solid red;
+}
