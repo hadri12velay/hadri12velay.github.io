@@ -5,8 +5,8 @@
     --cellHeight: 5rem;
     --cellWidth: 5rem;
 
-    --bgcolor: linear-gradient(to right top, #85aabd, #2c3541);
-    --outputcolor: linear-gradient(to right top, rgba(0, 0, 0, 0.13), rgb(0, 0, 0));
+    --bgcolor: #070b13 /*linear-gradient(to right top, #85aabd, #2c3541)*/;
+    --outputcolor: linear-gradient(to right top, rgba(255, 255, 255, 0.13), rgb(255, 255, 255));
     --color1: rgb(221, 221, 221);
     --color2: rgb(185, 185, 185);
     --color3: linear-gradient(to right , #999999, #99999986);
@@ -65,7 +65,7 @@ button.calc:hover {
 .output {
     height: var(--cellHeight);
     width: calc(var(--cellWidth) * 4);
-    background: linear-gradient(to right top, rgba(0, 0, 0, 0.13), rgb(0, 0, 0));
+    background: linear-gradient(to right top, #ee9643, rgb(216, 128, 194));
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
