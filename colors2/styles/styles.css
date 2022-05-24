@@ -1,0 +1,163 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary);
+
+    --background1: #070b13;
+    --background2: #242831;
+    --primary: white;
+    --secondary: #acacac;
+    --special: #e9c240;
+    --special2: #b83b3b;
+    --spare: #ff00dd;
+
+    --header1 : 7rem;
+    --header2 : 3.5rem;
+    --header3 : 2.3rem;
+    --small : 1.8rem;
+
+    --borders1: 2px;
+    --borders2: 1px;
+    --borders2neg: -1px;
+}
+html.light {
+    --background1: #ffffff;
+    --background2: #ffffff;
+    --primary: rgb(26, 26, 26);
+    --secondary: #acacac;
+    --special: #e9c240;
+    --special2: #b83b3b;
+    --spare: #ff00dd;
+    
+    --borders2: 0px;
+    --borders2neg: 0px;
+}
+h1 {
+    font-size: var(--header1);
+    font-weight: 200;
+}
+P {
+    font-size: var(--small);
+    font-weight: 500;
+}
+body {
+    background: var(--background1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* font-size: 1.7rem; */
+}
+hr {
+    height: 2px;
+    background: var(--primary);
+    border: none;
+}
+.header {
+    text-align: center;
+}
+.headhr {
+    width: 100vw;
+}
+.container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+}
+.side {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50rem;
+}
+.main {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+.palette {
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.paletteName {
+    background: var(--background2);
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: center;
+    border-top: var(--borders1) solid var(--primary);
+    border-right: var(--borders1) solid var(--primary);
+    border-left: var(--borders1) solid var(--primary);
+    /* border: var(--borders1) solid white;
+    border-bottom: var(--borders2) solid white; */
+}
+.paletteBottom {
+    background: var(--background2);
+    width: 100%;
+    min-height: 2rem;
+    border-radius: 0 0 10px 10px;
+    border-bottom: var(--borders1) solid var(--primary);
+    border-right: var(--borders1) solid var(--primary);
+    border-left: var(--borders1) solid var(--primary);
+    /* border: var(--borders1) solid white;
+    border-top: var(--borders2) solid white; */
+}
+.palette:hover .smallhr {
+    background: var(--special2);
+}
+/* .palette:hover .paletteName {
+    color: var(--special2);
+} */
+.smallhr {
+    position: relative;
+    width: 50%;
+    transform: translateY(-50%);
+    bottom: 1rem;
+    background: var(--primary);
+}
+
+.color {
+    width: 100%;
+    background: attr(color);
+    height: 0px;
+    border-right: var(--borders1) solid var(--primary);
+    border-left: var(--borders1) solid var(--primary);
+    transition: height 0.4s;
+}
+.palette > .color:nth-of-type(2) {
+    box-shadow: inset 0 var(--borders2) 0 var(--primary);
+}
+.palette > .color:nth-last-of-type(2) {
+    box-shadow: inset 0 var(--borders2neg) 0 var(--primary);
+}
+.activeColor {
+    height: 3rem;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+#newPalette {
+    background: var(--background1);
+    border-radius: 10px;
+    padding: 5px 13px 5px 8px;
+    border: var(--borders1) solid var(--primary);
+}
+#newPalette:hover {
+    color: var(--special2);
+    border-color: var(--special2);
+}
