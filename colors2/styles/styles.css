@@ -69,6 +69,7 @@ hr {
     display: flex;
     justify-content: center;
     padding: 4rem 0;
+    flex-wrap: wrap;
 }
 .side {
     flex: 1 1;
