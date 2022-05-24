@@ -150,6 +150,16 @@ hr {
     border-right: var(--borders1) solid var(--primary);
     border-left: var(--borders1) solid var(--primary);
     transition: height 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.color p {
+    font-size: 3rem;
+    display: none;
+}
+.activeColor:hover p{
+    display: inline;
 }
 .palette > .color:nth-of-type(2) {
     box-shadow: inset 0 var(--borders2) 0 var(--primary);
@@ -158,7 +168,7 @@ hr {
     box-shadow: inset 0 var(--borders2neg) 0 var(--primary);
 }
 .activeColor {
-    height: 3rem;
+    height: 4rem;
 }
 
 button {
