@@ -156,6 +156,7 @@ button {
     border-radius: 10px;
     padding: 5px 13px 5px 8px;
     border: var(--borders1) solid var(--primary);
+    min-width: 23rem;
 }
 #newPalette:hover {
     color: var(--special2);
