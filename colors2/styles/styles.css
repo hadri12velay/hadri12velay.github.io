@@ -26,15 +26,29 @@ html {
     --borders2: 1px;
     --borders2neg: -1px;
 }
+html.dark {
+    --background1: #070b13;
+    --background2: #242831;
+    --primary: #ffffff;
+    --secondary: #acacac;
+    --special: #e9c240;
+    --special2: #b83b3b;
+    --spare: #ff00dd;
+
+    --borders1: 2px;
+    --borders2: 1px;
+    --borders2neg: -1px;
+}
 html.light {
     --background1: #ffffff;
     --background2: #ffffff;
-    --primary: rgb(26, 26, 26);
+    --primary: #1a1a1a;
     --secondary: #acacac;
     --special: #e9c240;
     --special2: #b83b3b;
     --spare: #ff00dd;
     
+    --borders1: 2px;
     --borders2: 0px;
     --borders2neg: 0px;
 }
@@ -48,9 +62,6 @@ P {
 }
 body {
     background: var(--background1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     /* font-size: 1.7rem; */
 }
 hr {
@@ -69,12 +80,16 @@ hr {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 .side {
     flex: 1 1;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
     max-width: 25rem;
     min-width: 25rem;
     padding: 4rem 0 0 0;
@@ -174,15 +189,26 @@ hr {
 button {
     all: unset;
     cursor: pointer;
-}
-#newPalette {
+    padding-top: 5px;
+    padding-bottom: 5px;
     background: var(--background1);
     border-radius: 10px;
-    padding: 5px 11px 5px 8px;
     border: var(--borders1) solid var(--primary);
-    
+}
+#newPalette {
+    padding-left: 8px;
+    padding-right: 11px;
 }
 #newPalette:hover {
+    color: var(--special2);
+    border-color: var(--special2);
+}
+.theme {
+    padding-left: 8px;
+    padding-right: 8px;
+
+}
+.theme:hover {
     color: var(--special2);
     border-color: var(--special2);
 }

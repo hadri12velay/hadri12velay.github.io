@@ -1,6 +1,38 @@
 $(document).ready(function(){
 });
 
+
+
+
+// Get palette data and construct
+class data {
+	constructor(name, colors) {
+		for (let i=0; i<name.length; i++) {
+			var stringToAppend = '<div class="palette"><div class="paletteName"><p>'+ name[i] + '</p></div>';
+			for (let j=0; j < colors[i].length; j++) {
+			stringToAppend += '<div class="color" color="'+ colors[i][j] + '"></div>';
+			};
+			stringToAppend +='<div class="paletteBottom"></div><hr class="smallhr"></div>';
+			$('.main').append(stringToAppend);
+		};
+	}
+}
+
+// Example data
+const palette = new data(
+	['brand', 'pastel', 'smile pop'],
+	[
+		['#001B2E','#203644','#D26E33','#754541'],
+		['#B0F2B4','#BAF2E9','#BAD7F2','#F2BAC9', '#F2E2BA'],
+		['#464D77','#36827F','#F9DB6D']
+	]
+)
+
+
+
+
+
+
 // Opens first palette foe A E S T E T I K
 $('.palette:first').children('.color').each(function() {
 		$(this).toggleClass('activeColor');
@@ -70,21 +102,38 @@ function padZero(str, len) {
 
 // function to copy hex color when clicking on color
 $(".color").click(function() {
-  	var copyText = $(this).children().html();
-  	navigator.clipboard.writeText(copyText);
-  	$(this).children().css("font-size", "2rem");
-  	$(this).children().css("font-style", "italic");
-  	$(this).children().html('copied :)');
-  
-  
-  	setTimeout(() => {
-    $(this).children().css("font-style", "normal");
-    $(this).children().css("font-size", "3rem");
-    $(this).children().html(copyText);
-    // console.log("Delayed for 1 second.");
-  	}, "800")
-  	//add something to know it's been copied to clipboard
+	var copyText = $(this).children().html();
+  	if (copyText != 'copied :)') {
+		navigator.clipboard.writeText(copyText);
+		$(this).children().css("font-size", "2rem");
+		$(this).children().css("font-style", "italic");
+		$(this).children().html('copied :)');
+		setTimeout(() => {
+			$(this).children().css("font-style", "normal");
+			$(this).children().css("font-size", "3rem");
+			$(this).children().html(copyText);
+			// console.log("Delayed for 1 second.");
+		}, "800")
+		//add something to know it's been copied to clipboard
+	}
 });
 
 
+// set theme and get from local cache
+if (localStorage.getItem("theme") === null ) {
+	$('html').addClass('light');
+	localStorage.setItem("theme", "light")
+} else {
+	$('html').addClass(localStorage.getItem("theme"));
+};
+// change theme :)
+$(".theme").click(function() {
+    $('html').toggleClass('light');
+    $('html').toggleClass('dark');
+	if (localStorage.getItem("theme") === "dark" ) {
+		localStorage.setItem("theme", "light")
+	} else {
+		localStorage.setItem("theme", "dark")
+	};
+});
 
