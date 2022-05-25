@@ -159,7 +159,7 @@ $(".newPalette").click(function() {
 	$('.createPalette').css('display', 'inline');
 	$('#createPalette')[0].scrollIntoView({
 		behavior: "smooth", // or "auto" or "instant"
-		block: "start" // or "end"
+		block: "end" // or "end"
 	});
 });
 
@@ -168,7 +168,7 @@ $(".clearSaved").click(function() {
 	localStorage.removeItem("palettes");
 	//localStorage.removeItem("theme");
     alert('local storage wiped');
-	location.reload();
+	history.go(0);
 });
 
 
