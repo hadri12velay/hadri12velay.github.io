@@ -156,6 +156,7 @@ hr {
     transform: translateY(-50%);
     bottom: 1rem;
     background: var(--primary);
+    pointer-events: none;
 }
 
 .color {
