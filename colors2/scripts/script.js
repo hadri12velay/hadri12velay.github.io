@@ -165,9 +165,10 @@ $(".newPalette").click(function() {
 
 // clear saved
 $(".clearSaved").click(function() {
-    alert('local storage wiped');
 	localStorage.removeItem("palettes");
 	//localStorage.removeItem("theme");
+    alert('local storage wiped');
+	location.reload();
 });
 
 
