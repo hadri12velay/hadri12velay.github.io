@@ -137,7 +137,7 @@ var palette = new data(names, palettes);
 // 	// Don't forget e.preventDefault() if you want to stop normal form .submission
 // });
 
-console.log(palette)
+// get palette from form
 $(".createPalette").submit(function(e) {
 	$('.createPalette').css('display', 'none');
     e.preventDefault();
@@ -161,6 +161,12 @@ $(".newPalette").click(function() {
 		behavior: "smooth", // or "auto" or "instant"
 		block: "end" // or "end"
 	});
+});
+// cancel button
+$(".cancelNew").click(function() {
+    //history.go(0);
+	$('.createPalette').css('display', 'none');
+	$('.createPalette')[0].reset();
 });
 
 // clear saved

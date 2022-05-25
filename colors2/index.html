@@ -50,13 +50,15 @@
             <form action="" class="createPalette" id="createPalette">
                 <p>create new label</p>
                 <hr><br>
-                <label for="name"><p>name of palette:</p></label><br>
-                <input type="text" id="name" value="palette name" name="name"><br><br>
-                <label for="color1"><p>first color:</p></label><br>
-                <input type="color" id="color1" name="colors" value="#001B2E"><br><br>
-                <label for="color2"><p>second color:</p></label><br>
-                <input type="color" id="color2" name="colors" value="#D26E33"><br><br>
-                <input type="submit" value="submit" class="submit">
+                <label for="name"><p>name of palette:</p></label>
+                <input autocomplete="off" type="text" id="name" value="palette name" name="name"><br><br>
+                <label for="color1"><p>first color:</p></label>
+                <input type="color" id="color1" name="colors" value="#001B2E"><br>
+                <label for="color2"><p>second color:</p></label>
+                <input type="color" id="color2" name="colors" value="#D26E33"><br>
+                <br>
+                <input type="submit" value="submit" class="submit"> 
+                <button type="button" class="cancelNew"><p>cancel</p></button>
             </form>
         </div>
     </div>

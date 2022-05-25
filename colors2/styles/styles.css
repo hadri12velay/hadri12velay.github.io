@@ -64,7 +64,7 @@ P {
 body {
     background: var(--background1);
     /* font-size: 1.7rem; */
-    min-height: 100vh;
+    height: 200vh;
     padding-bottom: 6.5rem;
 }
 hr {
@@ -78,6 +78,7 @@ hr {
     position: sticky;
     top: 0;
     background: var(--background1);
+    z-index: 1;
 }
 .headhr {
     width: 100%;
@@ -196,7 +197,8 @@ hr {
 }
 
 button,
-input[type=submit] {
+input[type=submit],
+.cancelNew {
     margin: 0;
     all: unset;
     cursor: pointer;
@@ -216,16 +218,22 @@ input[type=submit] {
 }
 .theme,
 .clearSaved,
-input[type=submit] {
+input[type=submit],
+.cancelNew {
     padding-left: 8px;
     padding-right: 8px;
 
 }
 .theme:hover,
 .clearSaved:hover,
-input[type=submit]:hover {
+input[type=submit]:hover,
+.cancelNew:hover {
     color: var(--special2);
     border-color: var(--special2);
+}
+
+.cancelNew {
+    float: right;
 }
 
 .createPalette {
@@ -251,8 +259,12 @@ input {
 input[type=text] {
     color: var(--secondary);
     border-radius: 7px;
+    width: 100%;
     border: var(--borders1) solid var(--primary);
     padding: 0.5rem 0rem 0.5rem 1rem;
+    background: var(--background2);
+}
+input[type=color] {
 }
 
 
