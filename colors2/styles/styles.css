@@ -191,7 +191,7 @@ button {
     cursor: pointer;
     padding-top: 5px;
     padding-bottom: 5px;
-    background: var(--background1);
+    background: var(--background2);
     border-radius: 10px;
     border: var(--borders1) solid var(--primary);
 }
