@@ -19,8 +19,9 @@ html {
 
     --header1 : 7rem;
     --header2 : 3.5rem;
-    --header3 : 2.3rem;
+    --header3 : 1.8rem;
     --small : 1.8rem;
+    --tiny: 1.5rem;
 
     --borders1: 2px;
     --borders2: 1px;
@@ -36,14 +37,14 @@ html.dark {
     --spare: #ff00dd;
 
     --borders1: 2px;
-    --borders2: 1px;
-    --borders2neg: -1px;
+    --borders2: 2px;
+    --borders2neg: -2px;
 }
 html.light {
     --background1: #ffffff;
     --background2: #ffffff;
     --primary: #1a1a1a;
-    --secondary: #acacac;
+    --secondary: #505050;
     --special: #e9c240;
     --special2: #b83b3b;
     --spare: #ff00dd;
@@ -86,7 +87,7 @@ hr {
     flex: 1 1;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
@@ -187,7 +188,9 @@ hr {
     height: 4rem;
 }
 
-button {
+button,
+input[type=submit] {
+    margin: 0;
     all: unset;
     cursor: pointer;
     padding-top: 5px;
@@ -196,20 +199,51 @@ button {
     border-radius: 10px;
     border: var(--borders1) solid var(--primary);
 }
-#newPalette {
+.newPalette {
     padding-left: 8px;
     padding-right: 11px;
 }
-#newPalette:hover {
+.newPalette:hover {
     color: var(--special2);
     border-color: var(--special2);
 }
-.theme {
+.theme,
+.clearSaved,
+input[type=submit] {
     padding-left: 8px;
     padding-right: 8px;
 
 }
-.theme:hover {
+.theme:hover,
+.clearSaved:hover,
+input[type=submit]:hover {
     color: var(--special2);
     border-color: var(--special2);
+}
+
+.createPalette {
+    background: var(--background2);
+    width: 100%;
+    padding: 5px 8px 5px 8px;
+    border-radius: 10px;
+    border: var(--borders1) solid var(--primary);
+    overflow: hidden;
+    transition: height 0.4s;
+    display: none;
+}
+input[type=submit] {
+    font-size: var(--small);
+    font-weight: 500;
+}
+label p,
+input {
+    font-size: var(--tiny);
+    font-family: 'Poppins', sans-serif;
+}
+
+input[type=text] {
+    color: var(--secondary);
+    border-radius: 7px;
+    border: var(--borders1) solid var(--primary);
+    padding: 0.5rem 0rem 0.5rem 1rem;
 }

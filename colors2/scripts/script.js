@@ -1,70 +1,175 @@
 $(document).ready(function(){
 });
 
-
-
-
 // Get palette data and construct
 class data {
+	// create a method for deleting palettes
+	// create a method for editing palettes
+	// create a method for saving palettes to storage
 	constructor(name, colors) {
-		for (let i=0; i<name.length; i++) {
-			var stringToAppend = '<div class="palette"><div class="paletteName"><p>'+ name[i] + '</p></div>';
-			for (let j=0; j < colors[i].length; j++) {
-			stringToAppend += '<div class="color" color="'+ colors[i][j] + '"></div>';
+		this.name = name;
+		this.colors = colors;
+		this.build();
+		if(localStorage.getItem("palettes") != null) {
+			this.saves = JSON.parse(localStorage.getItem("palettes"));
+		} else {
+			this.saves = [[],[]];
+		};
+	}
+	build = function() {
+		$('.main').html('');
+		for (let i=0; i<this.name.length; i++) {
+			var stringToAppend = '<div class="palette"><div class="paletteName"><p>'+ this.name[i] + '</p></div>';
+			for (let j=0; j < this.colors[i].length; j++) {
+				stringToAppend += '<div class="color" color="'+ this.colors[i][j] + '"></div>';
 			};
 			stringToAppend +='<div class="paletteBottom"></div><hr class="smallhr"></div>';
 			$('.main').append(stringToAppend);
 		};
+		this.addEvents();
+	}
+	save = function() {
+		this.saves[0].push(this.newName);
+		this.saves[1].push(this.newColors);
+		this.savesJSON = JSON.stringify(this.saves);
+		localStorage.setItem('palettes', this.savesJSON)
+	}
+	append = function(form) {
+		this.name.push(form.get('name'))
+		var newColors = []; 
+		for (var i=0; i<form.getAll('colors').length; i++) {
+			newColors.push(form.getAll('colors')[i]);
+		};
+		this.colors.push(newColors);
+		this.build();
+	}
+	add = function(form) {
+		this.newName = form.get('name');
+		this.newColors = []; 
+		for (var i=0; i<form.getAll('colors').length; i++) {
+			this.newColors.push(form.getAll('colors')[i]);
+		};
+		var stringToAdd = '<div class="palette"><div class="paletteName"><p>'+ this.newName + '</p></div>';
+
+		for (let j=0; j < this.newColors.length; j++) {
+			stringToAdd += '<div class="color" color="'+ this.newColors[j] + '"></div>';
+		};
+		stringToAdd +='<div class="paletteBottom"></div><hr class="smallhr"></div>';
+		$('.main').append(stringToAdd);
+
+		this.name.push(this.newName);
+		this.colors.push(this.newColors);
+		this.save();
+		this.addEvents();
+	}
+	addEvents = function() {
+		// set each color background to their attr 'color' value
+		$(".paletteName").off('click');
+		$(".paletteBottom").off('click');
+		$(".color").off('click');
+
+		$('.color').each(function() {
+			var background = $(this).attr('color');
+			$(this).css("background", background);
+			$(this).html('<p>' + background + '</p>');
+			var color = invertColor(background);
+			$(this).css("color", color);
+		});
+		// Show palette colors when clicking box
+		$(".paletteName").click(function() {
+		$(this).parent().children('.color').each(function() {
+			$(this).toggleClass('activeColor');
+		});
+		});
+		$(".paletteBottom").click(function() {
+		$(this).parent().children('.color').each(function() {
+			$(this).toggleClass('activeColor');
+			});
+		});
+		
+		// function to copy hex color when clicking on color
+		$(".color").click(function() {
+			var copyText = $(this).children().html();
+			if (copyText != 'copied :)') {
+				navigator.clipboard.writeText(copyText);
+				$(this).children().css("font-size", "2rem");
+				$(this).children().css("font-style", "italic");
+				$(this).children().html('copied :)');
+				setTimeout(() => {
+					$(this).children().css("font-style", "normal");
+					$(this).children().css("font-size", "3rem");
+					$(this).children().html(copyText);
+					// console.log("Delayed for 1 second.");
+				}, "800")
+				//add something to know it's been copied to clipboard
+			}
+		});
 	}
 }
 
 // Example data
-const palette = new data(
-	['brand', 'pastel', 'smile pop'],
-	[
-		['#001B2E','#203644','#D26E33','#754541'],
-		['#B0F2B4','#BAF2E9','#BAD7F2','#F2BAC9', '#F2E2BA'],
-		['#464D77','#36827F','#F9DB6D']
-	]
-)
+var names = ['brand', 'pastel', 'smile pop'];
+var palettes = [
+	['#001B2E','#203644','#D26E33','#754541'],
+	['#B0F2B4','#BAF2E9','#BAD7F2','#F2BAC9', '#F2E2BA'],
+	['#464D77','#36827F','#F9DB6D']
+];
+
+if (localStorage.getItem("palettes") != null) {
+	var importData = JSON.parse(localStorage.getItem("palettes"));
+	for(var i=0; i<importData[0].length; i++) {
+		names.push(importData[0][i]);
+	}
+	for(var i=0; i<importData[1].length; i++) {
+		palettes.push(importData[1][i]);
+	}
+}
+
+console.log(names);
 
 
+var palette = new data(names, palettes);
+
+// document.querySelector('.createPalette').addEventListener('submit', (e) => {
+// 	const formData = new FormData(e.target);
+// 	console.log(formData);
+// 	// Now you can use formData.get('foo'), for example.
+// 	// Don't forget e.preventDefault() if you want to stop normal form .submission
+// });
+
+console.log(palette)
+$(".createPalette").submit(function(e) {
+	$('.createPalette').css('display', 'none');
+    e.preventDefault();
+	const formData = new FormData(e.target);
+	palette.add(formData);
+});
 
 
-
-
-// Opens first palette foe A E S T E T I K
+// Opens first palette for A E S T E T I K
 $('.palette:first').children('.color').each(function() {
-		$(this).toggleClass('activeColor');
+	$(this).toggleClass('activeColor');
 })
 
 
-// set each color background to their attr 'color' value
-$('.color').each(function() {
-  	var background = $(this).attr('color');
-  	$(this).css("background", background);
-  	$(this).html('<p>' + background + '</p>');
-  	var color = invertColor(background);
-  	$(this).css("color", color);
-  
+
+//Palette generation
+$(".newPalette").click(function() {
+    //alert('Not implemented yet. Come back later.');
+	$('.createPalette').css('display', 'inline');
+	$('#createPalette')[0].scrollIntoView({
+		behavior: "smooth", // or "auto" or "instant"
+		block: "start" // or "end"
+	});
 });
 
-// Show palette colors when clicking box
-$(".paletteName").click(function() {
-    $(this).parent().children('.color').each(function() {
-        $(this).toggleClass('activeColor');
-      });
-});
-$(".paletteBottom").click(function() {
-    $(this).parent().children('.color').each(function() {
-        $(this).toggleClass('activeColor');
-      });
+// clear saved
+$(".clearSaved").click(function() {
+    alert('local storage wiped');
+	localStorage.removeItem("palettes");
+	//localStorage.removeItem("theme");
 });
 
-// Palette generation
-$("#newPalette").click(function() {
-    alert('Not implemented yet. Come back later. Or not. Preferably not.');
-});
 
 // Invert colors for text in colors
 function invertColor(hex, bw=true) {
@@ -100,23 +205,6 @@ function padZero(str, len) {
   	return (zeros + str).slice(-len);
 }
 
-// function to copy hex color when clicking on color
-$(".color").click(function() {
-	var copyText = $(this).children().html();
-  	if (copyText != 'copied :)') {
-		navigator.clipboard.writeText(copyText);
-		$(this).children().css("font-size", "2rem");
-		$(this).children().css("font-style", "italic");
-		$(this).children().html('copied :)');
-		setTimeout(() => {
-			$(this).children().css("font-style", "normal");
-			$(this).children().css("font-size", "3rem");
-			$(this).children().html(copyText);
-			// console.log("Delayed for 1 second.");
-		}, "800")
-		//add something to know it's been copied to clipboard
-	}
-});
 
 
 // set theme and get from local cache

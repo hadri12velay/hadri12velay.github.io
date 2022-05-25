@@ -22,14 +22,17 @@
     <hr class="headhr">
     <div class="container">
         <div class="side">
-            <button id="newPalette">
+            <button class="theme">
+                <p>theme</p>
+            </button>
+            <button class="newPalette" href="#createPalette">
                 <p>+ new</p>
             </button>
-            <button class="theme">
-                <p>change theme</p>
+            <button class="clearSaved">
+                <p>clear saved</p>
             </button>
         </div>
-
+        
         <div class="main">
             <!-- <div class="palette">
                 <div class="paletteName">
@@ -43,11 +46,35 @@
                 <hr class="smallhr">
             </div> -->
         </div>
-
+        
         <div class="side">
-
+            <form action="" class="createPalette" id="createPalette">
+                <p>create new label</p>
+                <hr><br>
+                <label for="name"><p>name of palette:</p></label><br>
+                <input type="text" id="name" value="palette name" name="name"><br><br>
+                <label for="color1"><p>first color:</p></label><br>
+                <input type="color" id="color1" name="colors" value="#001B2E"><br><br>
+                <label for="color2"><p>second color:</p></label><br>
+                <input type="color" id="color2" name="colors" value="#D26E33"><br><br>
+                <input type="submit" value="submit" class="submit">
+            </form>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
