@@ -57,6 +57,10 @@ h1 {
     font-size: var(--header1);
     font-weight: 200;
 }
+h3 {
+    font-size: var(--header3);
+    font-weight: 400;
+}
 P {
     font-size: var(--small);
     font-weight: 500;
@@ -267,11 +271,6 @@ input[type=text] {
 input[type=color] {
 }
 
-
-
-
-
-
 .landing {
     position: fixed;
     bottom: 0;
@@ -285,4 +284,35 @@ input[type=color] {
     font-weight: 300;
     font-size: var(--tiny);
 
+}
+
+.popup {
+    position: fixed;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.popupWindow {
+    padding: 2rem 3rem 2rem 3rem;
+    margin: 1rem;
+    max-width: 35rem;
+    background: var(--background1);
+    border: var(--borders1) solid var(--primary);
+    border-radius: 7px;
+    opacity: 100%;
+    text-align: center;
+}
+.popupWindow button {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.popupWindow button:hover {
+    color: var(--special2);
+    border-color: var(--special2);
+}
+.clearYes {
+    margin: 2rem 3rem 0 0;
 }

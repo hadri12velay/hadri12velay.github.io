@@ -171,10 +171,23 @@ $(".cancelNew").click(function() {
 
 // clear saved
 $(".clearSaved").click(function() {
-	localStorage.removeItem("palettes");
-	//localStorage.removeItem("theme");
-    alert('local storage wiped');
-	history.go(0);
+	// if (confirm("Are you sure you want to delete all saved palettes?")) {
+	// 	localStorage.removeItem("palettes");
+	// 	//localStorage.removeItem("theme");
+	// 	alert('Local storage wiped');
+	// 	history.go(0);
+	// }
+	$(".popup").children(".popupWindow").html('<h3>are you sure you want to delete your saved palettes?</h3><br><button class="clearYes"><h3>confirm</h3></button><button class="clearNo"><h3>cancel</h3></button>');
+	$(".popup").css("display", "flex");
+	$(".clearYes").click(function() {
+		localStorage.removeItem("palettes");
+		//alert('Local storage wiped');
+		history.go(0);
+	})
+	$(".clearNo").click(function() {
+		$(".popup").css("display", "none");
+	})
+
 });
 
 
