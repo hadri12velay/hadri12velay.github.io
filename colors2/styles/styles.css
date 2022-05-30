@@ -29,8 +29,9 @@ html {
     --borders2neg: -1px;
 }
 html.dark {
-    --background1: #070b13;
+    --background1: #11131a;
     --background2: #242831;
+    --backgroundold: #070b13;
     --primary: #ffffff;
     --secondary: #acacac;
     --special: #e9c240;
@@ -98,11 +99,11 @@ hr {
 .side {
     flex: 1 1;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.5rem;
     max-width: 25rem;
     min-width: 25rem;
     padding: 4rem 0 0 0;
@@ -126,6 +127,10 @@ hr {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+}
+#example {
+    display: none;
+    opacity: 25%;
 }
 
 .paletteName {
@@ -223,6 +228,7 @@ input[type=submit],
 .theme,
 .clearSaved,
 input[type=submit],
+.createDefaults,
 .cancelNew {
     padding-left: 8px;
     padding-right: 8px;

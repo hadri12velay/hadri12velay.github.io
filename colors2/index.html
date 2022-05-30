@@ -23,31 +23,35 @@
         <h1>Color Palette 2</h1>
         <hr class="headhr">
     </div>
+    
+    
     <div class="container">
         <div class="side">
             <button class="theme">
                 <p>theme</p>
             </button>
+            <button class="createDefaults">
+                <p>defaults</p>
+            </button>
             <button class="newPalette" href="#createPalette">
-                <p>+ new</p>
+                <p>new</p>
             </button>
             <button class="clearSaved">
-                <p>clear saved</p>
+                <p>clear</p>
             </button>
         </div>
         
         <div class="main">
-            <!-- <div class="palette">
+            <div class="palette open" id="example">
                 <div class="paletteName">
-                    <p>brand</p>
+                    <p>example palette</p>
                 </div>
-                <div class="color" color="#001B2E"></div>
-                <div class="color" color="#203644"></div>
-                <div class="color" color="#D26E33"></div>
-                <div class="color" color="#754541"></div>
+                <div class="color" color="#000000"></div>
+                <div class="color" color="#404040"></div>
+                <div class="color" color="#bfbfbf"></div>
                 <div class="paletteBottom"></div>
                 <hr class="smallhr">
-            </div> -->
+            </div>
         </div>
         
         <div class="side">
@@ -55,7 +59,7 @@
                 <p>create new label</p>
                 <hr><br>
                 <label for="name"><p>name of palette:</p></label>
-                <input autocomplete="off" type="text" id="name" value="palette name" name="name"><br><br>
+                <input autocomplete="off" type="text" id="name" placeholder="palette name" name="name"><br><br>
                 <button type="button" class="addColor"><h3>+</h3></button>
                 <label for="color1"><p>color 1:</p></label>
                 <input type="color" id="color1" name="colors" value="#001B2E"><br>

@@ -9,15 +9,18 @@ class data {
 	constructor(name, colors) {
 		this.name = name;
 		this.colors = colors;
+		this.newName = '';
+		this.newColors = []; 
 		this.build();
 		if(localStorage.getItem("palettes") != null) {
 			this.saves = JSON.parse(localStorage.getItem("palettes"));
 		} else {
 			this.saves = [[],[]];
 		};
+		activateFirst();
 	}
 	build = function() {
-		$('.main').html('');
+		//$('.main').html('');
 		for (let i=0; i<this.name.length; i++) {
 			var stringToAppend = '<div class="palette"><div class="paletteName"><p>'+ this.name[i] + '</p></div>';
 			for (let j=0; j < this.colors[i].length; j++) {
@@ -33,22 +36,25 @@ class data {
 		this.saves[1].push(this.newColors);
 		this.savesJSON = JSON.stringify(this.saves);
 		localStorage.setItem('palettes', this.savesJSON)
-	}
-	append = function(form) {
-		this.name.push(form.get('name'))
-		var newColors = []; 
-		for (var i=0; i<form.getAll('colors').length; i++) {
-			newColors.push(form.getAll('colors')[i]);
-		};
-		this.colors.push(newColors);
-		this.build();
-	}
-	add = function(form) {
-		this.newName = form.get('name');
+		this.newName = '';
 		this.newColors = []; 
-		for (var i=0; i<form.getAll('colors').length; i++) {
-			this.newColors.push(form.getAll('colors')[i]);
-		};
+
+	}
+	add = function(input, type='form') {
+		$('#example').css('display', 'none')
+		if (type==='form') {
+			this.newName = input.get('name');
+			console.log(this.newName);
+			for (var i=0; i<input.getAll('colors').length; i++) {
+				this.newColors.push(input.getAll('colors')[i]);
+			};
+		} else if (type==='normal') {
+			this.newName = input[0];
+			console.log(this.newName);
+			for (var i=0; i<input[1].length; i++) {
+				this.newColors.push(input[1][i]);
+			};
+		}
 		var stringToAdd = '<div class="palette"><div class="paletteName"><p>'+ this.newName + '</p></div>';
 
 		for (let j=0; j < this.newColors.length; j++) {
@@ -63,11 +69,11 @@ class data {
 		this.addEvents();
 	}
 	addEvents = function() {
-		// set each color background to their attr 'color' value
+		// reset EventListeners
 		$(".paletteName").off('click');
 		$(".paletteBottom").off('click');
 		$(".color").off('click');
-
+		// set each color background to their attr 'color' value
 		$('.color').each(function() {
 			var background = $(this).attr('color');
 			$(this).css("background", background);
@@ -86,15 +92,14 @@ class data {
 			$(this).toggleClass('activeColor');
 			});
 		});
-		
 		// function to copy hex color when clicking on color
 		$(".color").click(function() {
 			var copyText = $(this).children().html();
-			if (copyText != 'copied :)') {
+			if (copyText != 'copied') {
 				navigator.clipboard.writeText(copyText);
 				$(this).children().css("font-size", "2rem");
-				$(this).children().css("font-style", "italic");
-				$(this).children().html('copied :)');
+				$(this).children().css("font-style", "normal");
+				$(this).children().html('copied');
 				setTimeout(() => {
 					$(this).children().css("font-style", "normal");
 					$(this).children().css("font-size", "3rem");
@@ -107,9 +112,12 @@ class data {
 	}
 }
 
+// Data
+var names = [];
+var palettes = [];
 // Example data
-var names = ['brand', 'pastel', 'smile pop'];
-var palettes = [
+var defaultNames = ['brand', 'pastel', 'smile pop'];
+var defaultPalettes = [
 	['#001B2E','#203644','#D26E33','#754541'],
 	['#B0F2B4','#BAF2E9','#BAD7F2','#F2BAC9', '#F2E2BA'],
 	['#464D77','#36827F','#F9DB6D']
@@ -119,32 +127,30 @@ if (localStorage.getItem("palettes") != null) {
 	var importData = JSON.parse(localStorage.getItem("palettes"));
 	for(var i=0; i<importData[0].length; i++) {
 		names.push(importData[0][i]);
-	}
-	for(var i=0; i<importData[1].length; i++) {
 		palettes.push(importData[1][i]);
 	}
+} else {
+	$('#example').css('display', 'flex')
 }
-
-console.log(names);
-
 
 var palette = new data(names, palettes);
 
-// document.querySelector('.createPalette').addEventListener('submit', (e) => {
-// 	const formData = new FormData(e.target);
-// 	console.log(formData);
-// 	// Now you can use formData.get('foo'), for example.
-// 	// Don't forget e.preventDefault() if you want to stop normal form .submission
-// });
-
-
+// add defaults
+$('.createDefaults').click(function() {
+	for(var i=0; i<defaultNames.length; i++) {
+		palette.add([defaultNames[i], defaultPalettes[i]], type='normal')
+	}
+});
 
 // Opens first palette for A E S T E T I K
-$('.palette:first').children('.color').each(function() {
+function activateFirst() {
+	$('.palette:nth-child(1)').children('.color').each(function() {
 	$(this).toggleClass('activeColor');
-})
-
-
+	})
+	$('.palette:nth-child(2)').children('.color').each(function() {
+	$(this).toggleClass('activeColor');
+	})
+}
 
 //Palette generation
 $(".newPalette").click(function() {
@@ -160,12 +166,49 @@ $(".newPalette").click(function() {
 
 // get palette from form
 $(".createPalette").submit(function(e) {
-	$('.createPalette').css('display', 'none');
 	e.preventDefault();
-	const formData = new FormData(e.target);
-	palette.add(formData);
-	resetPalette(addedColors);
+	if(validateForm()) {
+		$('.createPalette').css('display', 'none');
+		const formData = new FormData(e.target);
+		palette.add(formData);
+		resetPalette(addedColors);
+	}
 });
+function validateForm() {
+	let x = $('#name').val();
+	if (x == "") {
+		alert("Name must be filled out.");
+		return false;
+	} else if (palette.name.includes(x)) {
+		alert("Name must be different.");
+		return false;
+	} else if (isAlphaNumeric(x) == false) {
+		alert("Name must only contain alphanumerics.");
+		return false;
+	} else {
+		return true;
+	}
+}
+function isAlphaNumeric(str) {
+	var code, i, len;
+	for (i = 0, len = str.length; i < len; i++) {
+		code = str.charCodeAt(i);
+		if (!(code > 47 && code < 58) && // numeric (0-9)
+		    !(code == 32) && // SPACE
+		    !(code == 44) && // ','
+		    !(code == 45) && // '-'
+		    !(code == 46) && // '.'
+		    !(code == 33) && // '!'
+		    !(code == 63) && // '?'
+		    !(code == 58) && // '-'
+		    !(code == 95) && // '_'
+			!(code > 64 && code < 91) && // upper alpha (A-Z)
+			!(code > 96 && code < 123)) { // lower alpha (a-z)
+			return false;
+		}
+	}
+	return true;
+};
 // cancel button
 $(".cancelNew").click(function() {
     //history.go(0);
@@ -272,3 +315,4 @@ $(".theme").click(function() {
 	};
 });
 
+console.log(palette.name);
