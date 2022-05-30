@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -59,7 +60,7 @@ h1 {
 }
 h3 {
     font-size: var(--header3);
-    font-weight: 400;
+    font-weight: 500;
 }
 P {
     font-size: var(--small);
@@ -68,7 +69,6 @@ P {
 body {
     background: var(--background1);
     /* font-size: 1.7rem; */
-    height: 200vh;
     padding-bottom: 6.5rem;
 }
 hr {
@@ -226,12 +226,16 @@ input[type=submit],
 .cancelNew {
     padding-left: 8px;
     padding-right: 8px;
-
 }
-.theme:hover,
-.clearSaved:hover,
+.addColor {
+    position: absolute;
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    right: 8px;
+    transform: translateY(8px);
+}
+
 input[type=submit]:hover,
-.cancelNew:hover {
+button:hover {
     color: var(--special2);
     border-color: var(--special2);
 }
@@ -249,6 +253,7 @@ input[type=submit]:hover,
     overflow: hidden;
     transition: height 0.4s;
     display: none;
+    position: relative;
 }
 input[type=submit] {
     font-size: var(--small);

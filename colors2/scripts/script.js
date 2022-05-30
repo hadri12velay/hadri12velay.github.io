@@ -137,13 +137,6 @@ var palette = new data(names, palettes);
 // 	// Don't forget e.preventDefault() if you want to stop normal form .submission
 // });
 
-// get palette from form
-$(".createPalette").submit(function(e) {
-	$('.createPalette').css('display', 'none');
-    e.preventDefault();
-	const formData = new FormData(e.target);
-	palette.add(formData);
-});
 
 
 // Opens first palette for A E S T E T I K
@@ -155,19 +148,53 @@ $('.palette:first').children('.color').each(function() {
 
 //Palette generation
 $(".newPalette").click(function() {
-    //alert('Not implemented yet. Come back later.');
+	//alert('Not implemented yet. Come back later.');
 	$('.createPalette').css('display', 'inline');
 	$('#createPalette')[0].scrollIntoView({
 		behavior: "smooth", // or "auto" or "instant"
-		block: "end" // or "end"
+		block: "center", // or "end"
+		inline: 'center'
 	});
+});
+
+
+// get palette from form
+$(".createPalette").submit(function(e) {
+	$('.createPalette').css('display', 'none');
+	e.preventDefault();
+	const formData = new FormData(e.target);
+	palette.add(formData);
+	resetPalette(addedColors);
 });
 // cancel button
 $(".cancelNew").click(function() {
     //history.go(0);
 	$('.createPalette').css('display', 'none');
 	$('.createPalette')[0].reset();
+	resetPalette(addedColors);
 });
+// function to reset form
+function resetPalette(a) {
+	for(var i=3; i<a+1; i++) {
+		// console.log(i);
+		$("[id='color" + i + "']").remove();
+		$("[for='color" + i + "']").remove();
+		$("[class='color" + i + "']").remove();
+	} 
+	addedColors = 2;
+}
+
+
+// add color when creating palette
+var addedColors = 2;
+$(".addColor").click(function() {
+	if (addedColors < 8) {
+		addedColors++;
+		var randomColor = Math.floor(Math.random()*16777215).toString(16);
+		var colordivs = "<label for='color" + addedColors + "'><p>color " + addedColors + ":</p></label><input type='color' id='color" + addedColors + "' name='colors' value='#" + randomColor + "'><br class='color" + addedColors + "'>";
+		$( colordivs ).insertBefore( "#endColorList" );
+	} // ADD popup that says "can't add more"
+})
 
 // clear saved
 $(".clearSaved").click(function() {
